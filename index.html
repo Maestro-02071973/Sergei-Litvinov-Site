@@ -79,10 +79,11 @@
     <div>
       <div class="muted" style="border:1px solid rgba(255,255,255,.18);padding:6px 10px;border-radius:999px;display:inline-block">
         Живой вокал • Ведущий мероприятий
-      </div>
-      <h1 style="margin-top:12px">Сергей Литвинов — певец и ведущий, который делает ваш праздник незабываемым</h1>
-      <p class="muted">Свадьбы, корпоративы, дни рождения и концерты. Энергия, харизма и проверенные хиты — от лирики до танцевальных бэнгеров.</p>
-      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+    <div id="hero-text" style="opacity:0; transform:translateY(40px); transition:all 1s ease;">
+  <h1 style="margin-top:12px">Сергей Литвинов — певец и ведущий, который делает ваш праздник незабываемым</h1>
+  <p class="muted">Свадьбы, корпоративы, дни рождения и концерты. Энергия, харизма и проверенные хиты — от лирики до танцевальных бэнгеров.</p>
+</div>
+        
         <a class="btn" href="#video">Смотреть видео</a>
         <a class="btn-outline" href="#contact">Связаться</a>
       </div>
@@ -208,6 +209,19 @@ window.addEventListener('scroll', () => {
   if (rect.top < window.innerHeight - 80) {
     f.style.opacity = 1;
     f.style.transform = 'translateY(0)';
+  }
+});
+</script>
+  
+<script>
+// Анимация появления hero-текста
+window.addEventListener('load', () => {
+  const hero = document.getElementById('hero-text');
+  if (hero) {
+    setTimeout(() => {
+      hero.style.opacity = 1;
+      hero.style.transform = 'translateY(0)';
+    }, 300); // лёгкая задержка для эффекта
   }
 });
 </script>
