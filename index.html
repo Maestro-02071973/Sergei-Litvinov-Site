@@ -55,6 +55,28 @@
   .reviews{display:grid;gap:16px}
   .review{padding:16px}
   .review strong{display:block;margin-bottom:6px}
+  /* Мягкий «прожектор» в герое */
+.hero-bg::after{
+  content:"";
+  position:absolute;
+  inset:-20%;
+  pointer-events:none;
+  /* два мягких пятна, смешиваются со снимком */
+  background:
+    radial-gradient(60% 55% at 20% 15%, rgba(183,139,250,.18), transparent 60%),
+    radial-gradient(45% 45% at 80% 70%, rgba(122,82,209,.14), transparent 60%);
+  filter: blur(30px);
+  mix-blend-mode: screen;      /* аккуратный световой эффект */
+  opacity:.45;                 /* общая “мощность” света */
+  animation: heroGlow 16s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow{
+  0%   { transform: translate3d(-3%,-2%,0) scale(1); }
+  50%  { transform: translate3d( 2%, 1%,0) scale(1.03); }
+  100% { transform: translate3d( 4%, 3%,0) scale(1.06); }
+}
+
 </style>
 </head>
 <body>
