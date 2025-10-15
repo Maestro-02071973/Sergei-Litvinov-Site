@@ -187,15 +187,30 @@
 </section>
 
 <footer>
-  <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
-    <div>© <span id="y"></span> Сергей Литвинов</div>
-    <div><a href="#top">Наверх ↑</a></div>
+  <div class="container" style="text-align:center; padding:24px 0; opacity:0; transform:translateY(20px); transition:all .8s ease;" id="footer-anim">
+    <div style="font-size:18px; margin-bottom:6px;">
+      © <span id="y"></span> Сергей Литвинов — вокал, музыка и душа праздника 🎶
+    </div>
+    <a href="#top" style="color:var(--muted);text-decoration:none;">Наверх ↑</a>
   </div>
 </footer>
+
 
 <script>
 // Только текущий год в подвале
 document.getElementById('y').textContent = new Date().getFullYear();
+  <script>
+// Плавное появление футера при прокрутке
+window.addEventListener('scroll', () => {
+  const f = document.getElementById('footer-anim');
+  if (!f) return;
+  const rect = f.getBoundingClientRect();
+  if (rect.top < window.innerHeight - 80) {
+    f.style.opacity = 1;
+    f.style.transform = 'translateY(0)';
+  }
+});
 </script>
+
 </body>
 </html>
